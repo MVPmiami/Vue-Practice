@@ -27,9 +27,18 @@
             <div class="todo-app-sort-checked-count">1/3 left</div>
           </div>
           <div class="right-side side">
-            <div class="todo-app-sort-all-tasks sort-btn">All</div>
-            <div class="todo-app-sort-active-tasks sort-btn">Active</div>
-            <div class="todo-app-sort-completed-tasks sort-btn">Completed</div>
+            <label class="todo-app-sort-all-tasks sort-btn">
+              <input type="radio" name="radio" />
+              <span class="fake">All</span>
+            </label>
+            <label class="todo-app-sort-active-tasks sort-btn">
+              <input type="radio" name="radio" />
+              <span class="fake">Active</span>
+            </label>
+            <label class="todo-app-sort-completed-tasks sort-btn">
+              <input type="radio" name="radio" />
+              <span class="fake">Completed</span>
+            </label>
           </div>
         </div>
       </div>
@@ -44,9 +53,9 @@ export default {
   data() {
     return {
       tasks: [
-        { title: "Task 1", checked: false, id: 1 },
-        { title: "Task 2", checked: false, id: 2 },
-        { title: "Task 3", checked: false, id: 3 },
+        { title: "Task 1", isChecked: false, id: 1 },
+        { title: "Task 2", isChecked: false, id: 2 },
+        { title: "Task 3", isChecked: false, id: 3 },
       ],
     };
   },
@@ -54,6 +63,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans:wght@600&display=swap");
-@import "./assets/index.scss";
+@import "./assets/style/index.scss";
 </style>

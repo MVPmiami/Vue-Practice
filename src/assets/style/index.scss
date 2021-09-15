@@ -18,7 +18,11 @@
 }
 
 .right-side {
-  width: 50%;
+  width: 55%;
+}
+
+.left-side-task {
+  padding: 12px 20rem 11px 0;
 }
 
 .img-list {
@@ -41,8 +45,9 @@
   &-header {
     @include fontHeader($color800);
     @include flexProps(center, row);
+    margin: 0;
     background-color: $color300;
-    height: 50px;
+    padding: 12px 0 11px 0;
     z-index: 10;
   }
 
@@ -54,9 +59,8 @@
     &-task {
       @include flexProps(space-between, row);
       @include fontText($color800);
+      margin-top: 30px;
       background-color: $color200;
-      width: 90%;
-      height: 50px;
       border-radius: 10px;
     }
   }
@@ -64,19 +68,38 @@
   &-sort {
     @include fontHeader($color800-42op);
     @include flexProps(space-between, row);
-    height: 50px;
+    padding: 12px 0 11px;
+    margin: 0;
     background-color: $color300;
     z-index: 10;
   }
 }
 
 .sort-btn {
-  cursor: pointer;
-  padding: 3px 10px;
-  &:hover {
+  padding: 3px 6px;
+
+  & input {
+    display: none;
+  }
+
+  & .fake {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 4px 7px;
+    text-align: center;
+  }
+
+  & input:checked + .fake {
     border: 1px solid $color800-42op;
     border-radius: 10px;
-    padding: 2px 9px;
+    padding: 2px 6px;
+  }
+
+  & .fake:hover {
+    border: 1px solid $color800-42op;
+    border-radius: 10px;
+    padding: 2px 6px;
   }
 }
 
@@ -109,6 +132,7 @@
   display: inline-flex;
   align-items: center;
   user-select: none;
+  cursor: pointer;
 }
 
 .custom-checkbox + label::before {
@@ -134,8 +158,7 @@
   @include flexProps(center, row);
   @include fontText($color300);
   background-color: $colorInput;
-  width: 90%;
-  height: 50px;
+  padding: 13px 5.5rem;
   margin: 30px 0;
   text-align: center;
   border: 2.5px dashed $color300;
@@ -157,11 +180,20 @@
     }
   }
 
+  .left-side-task {
+    padding: 12px 5rem 11px 0;
+  }
+
+  .input-add-new-task {
+    padding: 13px 3rem;
+    width: 150px;
+  }
+
   .side {
     margin: 0 10px;
   }
 
   .right-side {
-    width: 67%;
+    width: 77%;
   }
 }
