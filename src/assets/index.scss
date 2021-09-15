@@ -1,0 +1,167 @@
+@import "./variables.scss";
+@import "./reset.scss";
+
+#app {
+  @include flexProps(center, row);
+  width: 100%;
+  height: 100%;
+  background: $colorBckg;
+}
+
+.container {
+  position: relative;
+}
+
+.side {
+  @include flexProps(space-between, row);
+  margin: 0 30px;
+}
+
+.right-side {
+  width: 50%;
+}
+
+.img-list {
+  @include imgProps("~@/assets/img/list.png");
+  width: 512px;
+  height: 512px;
+  position: absolute;
+  top: -34px;
+  right: -239px;
+  z-index: 0;
+}
+
+.todo-app {
+  width: 540px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  box-shadow: 0px 8px 35px 5px $color-shadow;
+
+  &-header {
+    @include fontHeader($color800);
+    @include flexProps(center, row);
+    background-color: $color300;
+    height: 50px;
+    z-index: 10;
+  }
+
+  &-list {
+    @include flexProps(space-around, column);
+    background-color: $color100;
+    z-index: 10;
+
+    &-task {
+      @include flexProps(space-between, row);
+      @include fontText($color800);
+      background-color: $color200;
+      width: 90%;
+      height: 50px;
+      border-radius: 10px;
+    }
+  }
+
+  &-sort {
+    @include fontHeader($color800-42op);
+    @include flexProps(space-between, row);
+    height: 50px;
+    background-color: $color300;
+    z-index: 10;
+  }
+}
+
+.sort-btn {
+  cursor: pointer;
+  padding: 3px 10px;
+  &:hover {
+    border: 1px solid $color800-42op;
+    border-radius: 10px;
+    padding: 2px 9px;
+  }
+}
+
+.delete-task-btn {
+  @include imgProps("~@/assets/img/Vector.png");
+  width: 24px;
+  height: 24px;
+  background-color: $color200;
+  opacity: 0.5;
+  border: none;
+  outline: none;
+  margin: 0 13px;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+
+.custom-checkbox {
+  margin: 0 23px;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.custom-checkbox + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.custom-checkbox + label::before {
+  margin: 0 20px;
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 1.5px solid $color400;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 85% 65%;
+}
+
+.custom-checkbox:checked + label::before {
+  border-color: $color400;
+  background-color: $color400;
+  background-image: url("~@/assets/img/check.png");
+}
+
+.input-add-new-task {
+  @include flexProps(center, row);
+  @include fontText($color300);
+  background-color: $colorInput;
+  width: 90%;
+  height: 50px;
+  margin: 30px 0;
+  text-align: center;
+  border: 2.5px dashed $color300;
+  border-radius: 10px;
+
+  &:focus {
+    border: 2.5px solid $color300;
+    outline: none;
+    color: $color500;
+  }
+}
+
+@media (max-width: 600px) {
+  .todo-app {
+    width: 300px;
+
+    &-sort {
+      font-size: 16px;
+    }
+  }
+
+  .side {
+    margin: 0 10px;
+  }
+
+  .right-side {
+    width: 67%;
+  }
+}
