@@ -24,7 +24,7 @@ $font-text: "Inter";
 @mixin fontHeader($property) {
   font-family: $font-header;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: $property;
   line-height: normal;
 }
@@ -32,7 +32,7 @@ $font-text: "Inter";
 @mixin fontText($property) {
   font-family: $font-text;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: $property;
   line-height: normal;
 }
