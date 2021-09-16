@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Open+Sans:wght@600&display=swap");
+$color100: #fff4e9;
+$color100-8op: rgba(254, 149, 38, 8%);
+$color200: #ffdfbe;
+$colorInput: #ffecd8;
+$color200-16op: rgba(254, 149, 38, 16%);
+$color300: #ffca93;
+$color300-24op: rgba(254, 149, 38, 24%);
+$color400: #feb567;
+$color400-32op: rgba(254, 149, 38, 32%);
+$color500: #fea03c;
+$color500-40op: rgba(254, 149, 38, 40%);
+$color600: #e58622;
+$color600-48op: rgba(254, 149, 38, 48%);
+$color800-42op: rgba(127, 75, 19, 42%);
+$color700: #b2681b;
+$color800: #7f4b13;
+$color900: #331e08;
+$colorBckg: linear-gradient(104.11deg, #ff7e5f 14.52%, #feb567 87.26%);
+$color-shadow: #fe9262;
+$font-header: "Open Sans";
+$font-text: "Inter";
+
+@mixin fontHeader($property) {
+  font-family: $font-header;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: $property;
+  line-height: normal;
+}
+
+@mixin fontText($property) {
+  font-family: $font-text;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: $property;
+  line-height: normal;
+}
+
+@mixin imgProps($url) {
+  background-image: url($url);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin flexProps($position, $direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $position;
+  align-items: center;
+}
