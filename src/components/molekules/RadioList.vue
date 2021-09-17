@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Radio from "@/components/Radio.vue";
+import Radio from "@/components/atoms/Radio.vue";
 
 export default {
   name: "RadioList",
@@ -31,17 +31,15 @@ export default {
 
 <style lang="scss" module>
 @import "@/assets/styles/index.scss";
+
 .side {
   @include flexProps(space-between, row);
   margin: 0 1.87rem;
-}
-.right-side {
-  width: 16rem;
-}
-@media (max-width: 600px) {
-  .side {
-    margin: 0 0.5rem;
-    font-size: 1rem;
+  @media (max-width: 600px) {
+    .side {
+      margin: 0 0.5rem;
+      font-size: 1rem;
+    }
   }
 }
 </style>

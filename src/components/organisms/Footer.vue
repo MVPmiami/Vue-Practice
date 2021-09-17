@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import RadioList from "@/components/RadioList.vue";
+import RadioList from "@/components/molekules/RadioList.vue";
 
 export default {
   name: "Footer",
@@ -28,16 +28,15 @@ export default {
   margin: 0;
   background-color: $color300;
   z-index: 10;
-}
-
-.side {
-  @include flexProps(space-between, row);
-  margin: 0 1.87rem;
-}
-@media (max-width: 600px) {
   .side {
-    margin: 0 0.5rem;
-    font-size: 1rem;
+    @include flexProps(space-between, row);
+    margin: 0 1.87rem;
+  }
+  @media (max-width: 600px) {
+    .side {
+      margin: 0 0.5rem;
+      font-size: 1rem;
+    }
   }
 }
 </style>

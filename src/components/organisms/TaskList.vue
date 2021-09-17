@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Task from "@/components/Task.vue";
+import Task from "@/components/molekules/Task.vue";
 
 export default {
   name: "TaskList",
@@ -32,7 +32,6 @@ export default {
 
 <style lang="scss" module>
 @import "@/assets/styles/index.scss";
-
 .taskLlist {
   @include flexProps(space-around, column);
   background-color: $color100;
