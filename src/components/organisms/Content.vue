@@ -17,8 +17,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/styles/index.scss";
-
 .main {
   width: 30rem;
   display: flex;

@@ -31,7 +31,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/styles/index.scss";
 .taskLlist {
   @include flexProps(space-around, column);
   background-color: $color100;

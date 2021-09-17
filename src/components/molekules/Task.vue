@@ -35,7 +35,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/styles/index.scss";
 .task {
   @include flexProps(space-between, row);
   @include fontText($color800);

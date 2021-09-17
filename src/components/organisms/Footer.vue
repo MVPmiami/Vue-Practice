@@ -19,8 +19,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/styles/index.scss";
-
 .footer {
   @include fontHeader($color800-42op);
   @include flexProps(space-between, row);

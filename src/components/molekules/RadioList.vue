@@ -30,8 +30,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/styles/index.scss";
-
 .side {
   @include flexProps(space-between, row);
   margin: 0 1.87rem;

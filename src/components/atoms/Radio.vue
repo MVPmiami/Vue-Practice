@@ -22,7 +22,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/styles/index.scss";
 .radioBtn {
   display: flex;
   justify-content: center;

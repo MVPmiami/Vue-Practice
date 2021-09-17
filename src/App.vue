@@ -25,7 +25,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/styles/index.scss";
 #app {
   @include flexProps(center, row);
   width: 100%;

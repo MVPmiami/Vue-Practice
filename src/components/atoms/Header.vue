@@ -11,7 +11,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/styles/index.scss";
 .header {
   @include fontHeader($color800);
   @include flexProps(center, row);
