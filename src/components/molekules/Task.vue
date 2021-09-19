@@ -7,14 +7,18 @@
         :id="id"
         name="task"
         :checked="isChecked"
+        v-on:click="check"
       />
-      <label :for="id">{{ title }}</label>
+      <label :for="id"
+        ><p :class="$style.textTask">{{ title }}</p></label
+      >
     </div>
-    <button :class="$style.deleteBtn"></button>
+    <button :class="$style.deleteBtn" v-on:click="removeTask"></button>
   </div>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "Task",
   props: {
@@ -27,8 +31,17 @@ export default {
       default: false,
     },
     id: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "",
+    },
+  },
+  methods: {
+    ...mapMutations(["deleteTask", "checkTask"]),
+    removeTask() {
+      this.deleteTask({ id: this.id });
+    },
+    check() {
+      this.checkTask({ id: this.id });
     },
   },
 };
@@ -44,6 +57,11 @@ export default {
   width: 100%;
   padding: 0.688rem 0;
   position: relative;
+  .textTask {
+    max-width: 23rem;
+    margin: 0;
+    word-break: break-all;
+  }
   .deleteBtn {
     @include imgProps("~@/assets/img/Vector.png");
     width: 1.5rem;

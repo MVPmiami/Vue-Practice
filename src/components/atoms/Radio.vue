@@ -1,11 +1,13 @@
 <template>
-  <label :class="$style.radioBtn">
-    <input type="radio" name="radio" :checked="isChecked" />
+  <label :class="$style.radioBtn" v-on:click="changeRadio">
+    <input :id="id" type="radio" name="radio" :checked="isChecked" />
     <span :class="$style.fake">{{ title }}</span>
   </label>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   name: "Radio",
   props: {
@@ -16,6 +18,16 @@ export default {
     isChecked: {
       type: Boolean,
       default: false,
+    },
+    id: {
+      type: Number,
+      default: 1,
+    },
+  },
+  methods: {
+    ...mapMutations(["checkRadio"]),
+    changeRadio() {
+      this.checkRadio({ id: this.id });
     },
   },
 };
