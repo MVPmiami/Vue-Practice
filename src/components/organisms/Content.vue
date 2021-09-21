@@ -29,13 +29,19 @@ export default {
     TaskList,
   },
   computed: mapGetters(["sortTasks"]),
-	
+
   methods: {
-    ...mapMutations(["addTask"]),
+    ...mapMutations(["addTask", "renderLocalStorageTasks"]),
     add() {
       this.addTask(this.taskText);
       this.taskText = "";
     },
+  },
+
+  mounted() {
+    if (localStorage.tasks) {
+      this.renderLocalStorageTasks(JSON.parse(localStorage.tasks).tasks);
+    }
   },
 };
 </script>
