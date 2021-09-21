@@ -1,17 +1,41 @@
 <template>
   <main :class="$style.main">
     <TaskList />
-    <input :class="$style.input" placeholder="Add a new task" />
+    <div :class="[sortTasks.length ? $style.hide : $style.zeroTasks]">
+      There are no tasks
+    </div>
+    <form @submit.prevent="add">
+      <input
+        :class="$style.input"
+        placeholder="Add a new task"
+        v-model="taskText"
+      />
+    </form>
   </main>
 </template>
 
 <script>
 import TaskList from "@/components/organisms/TaskList.vue";
+import { mapMutations, mapGetters } from "vuex";
 
 export default {
   name: "Content",
+  data() {
+    return {
+      taskText: "",
+    };
+  },
   components: {
     TaskList,
+  },
+  computed: mapGetters(["sortTasks"]),
+	
+  methods: {
+    ...mapMutations(["addTask"]),
+    add() {
+      this.addTask(this.taskText);
+      this.taskText = "";
+    },
   },
 };
 </script>
@@ -41,6 +65,16 @@ export default {
       outline: none;
       color: $color500;
     }
+  }
+  .zeroTasks {
+    @include flexProps(center, row);
+    @include fontText($color800);
+    margin: 2rem 0 4rem;
+    border: 0.125rem solid $color400;
+    padding: 2rem;
+  }
+  .hide {
+    display: none;
   }
   @media (max-width: 600px) {
     .main {

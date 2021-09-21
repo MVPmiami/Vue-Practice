@@ -1,20 +1,24 @@
 <template>
   <footer :class="$style.footer">
     <div :class="[$style.leftSide, $style.side]">
-      <div :class="$style.checkedCount">1/3 left</div>
+      <div :class="$style.checkedCount">
+        {{ leftTasks }} / {{ sortTasks.length }} left
+      </div>
     </div>
     <RadioList />
   </footer>
 </template>
 
 <script>
-import RadioList from "@/components/molekules/RadioList.vue";
+import RadioList from "@/components/molecules/RadioList.vue";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Footer",
   components: {
     RadioList,
   },
+  computed: mapGetters(["leftTasks", "sortTasks"]),
 };
 </script>
 
@@ -22,6 +26,7 @@ export default {
 .footer {
   @include fontHeader($color800-42op);
   @include flexProps(space-between, row);
+  position: relative;
   padding: 0.75rem 0 0.68rem;
   margin: 0;
   background-color: $color300;

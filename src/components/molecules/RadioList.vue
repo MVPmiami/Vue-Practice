@@ -1,31 +1,25 @@
 <template>
   <div :class="[$style.radioList, $style.side]">
     <Radio
-      v-for="radioBtn in radioBtns"
+      v-for="radioBtn in allRadioBtns"
       :key="radioBtn.id"
       :title="radioBtn.title"
       :isChecked="radioBtn.isChecked"
+      :id="radioBtn.id"
     />
   </div>
 </template>
 
 <script>
 import Radio from "@/components/atoms/Radio.vue";
+import { mapGetters } from "vuex";
 
 export default {
   name: "RadioList",
   components: {
     Radio,
   },
-  data() {
-    return {
-      radioBtns: [
-        { title: "All", isChecked: true, id: 1 },
-        { title: "Active", isChecked: false, id: 2 },
-        { title: "Completed", isChecked: false, id: 3 },
-      ],
-    };
-  },
+  computed: mapGetters(["allRadioBtns"]),
 };
 </script>
 

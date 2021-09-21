@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.taskLlist">
     <Task
-      v-for="task in tasks"
+      v-for="task in sortTasks"
       :key="task.id"
       :title="task.title"
       :isChecked="task.isChecked"
@@ -11,19 +11,12 @@
 </template>
 
 <script>
-import Task from "@/components/molekules/Task.vue";
+import Task from "@/components/molecules/Task.vue";
+import { mapGetters } from "vuex";
 
 export default {
   name: "TaskList",
-  data() {
-    return {
-      tasks: [
-        { title: "Task 1", isChecked: true, id: 1 },
-        { title: "Task 2", isChecked: false, id: 2 },
-        { title: "Task 3", isChecked: false, id: 3 },
-      ],
-    };
-  },
+  computed: mapGetters(["sortTasks"]),
   components: {
     Task,
   },
