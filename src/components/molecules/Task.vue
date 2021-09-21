@@ -19,6 +19,8 @@
 
 <script>
 import { mapMutations } from "vuex";
+import { mapGetters } from "vuex";
+
 export default {
   name: "Task",
   props: {
@@ -35,13 +37,15 @@ export default {
       default: "",
     },
   },
+  computed: mapGetters(["leftTasks"]),
   methods: {
     ...mapMutations(["deleteTask", "checkTask"]),
     removeTask() {
-      this.deleteTask({ id: this.id });
+      this.deleteTask(this.id);
     },
     check() {
-      this.checkTask({ id: this.id });
+      this.checkTask(this.id);
+			this.leftTasks;
     },
   },
 };

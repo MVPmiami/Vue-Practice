@@ -1,34 +1,36 @@
+import { v4 as uuidv4 } from "uuid";
+
 export default {
   state: {
     tasks: [],
-    doneTasks: 0,
-    leftTasks: 0,
   },
   getters: {
-    allTasks: (state) => {
-      return state.tasks;
+    sortTasks: (state, rootGetters) => {
+      switch (rootGetters.currentRadioBtn) {
+        case "All":
+          return state.tasks;
+        case "Active":
+          return state.tasks.filter((task) => !task.isChecked);
+        case "Completed":
+          return state.tasks.filter((task) => task.isChecked);
+      }
     },
-    doneTasks: (state) => {
-      return (state.doneTasks = state.tasks.filter(
-        (task) => task.ischecked
-      ).length);
-    },
-    leftTasks: (state, getters) => {
-      return (state.leftTasks = getters.allTasks.length - getters.doneTasks);
+    leftTasks: (state) => {
+      return state.tasks.filter((task) => !task.isChecked).length;
     },
   },
   mutations: {
-    addTask(state, payload) {
-      payload.title.length !== 0 ? state.tasks.push(payload) : null;
+    addTask(state, textTask) {
+      textTask.length
+        ? state.tasks.push({ title: textTask, isChecked: false, id: uuidv4() })
+        : null;
     },
-    deleteTask(state, payload) {
-      state.tasks = state.tasks.filter((task) => task.id !== payload.id);
+    deleteTask(state, id) {
+      state.tasks = state.tasks.filter((task) => task.id !== id);
     },
-    checkTask(state, payload) {
+    checkTask(state, id) {
       state.tasks = state.tasks.map((task) =>
-        task.id === payload.id
-          ? { title: task.title, ischecked: !task.ischecked, id: task.id }
-          : task
+        task.id === id ? { ...task, isChecked: !task.isChecked } : task
       );
     },
   },

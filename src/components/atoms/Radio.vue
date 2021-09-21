@@ -27,7 +27,7 @@ export default {
   methods: {
     ...mapMutations(["checkRadio"]),
     changeRadio() {
-      this.checkRadio({ id: this.id });
+      this.checkRadio(this.id);
     },
   },
 };
@@ -38,10 +38,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 0.325rem;
   &:hover {
-    border: 0.063rem solid $color800-42op;
-    border-radius: 0.625rem;
-    padding: 0.062rem 0.312rem;
+    cursor: pointer;
   }
 
   input {
@@ -58,6 +57,7 @@ export default {
     height: 100%;
     padding: 0.125rem 0.375rem;
     text-align: center;
+		user-select: none;
   }
 }
 </style>

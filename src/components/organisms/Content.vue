@@ -1,23 +1,21 @@
 <template>
   <main :class="$style.main">
     <TaskList />
-    <div v-bind:class="[allTasks.length ? $style.hide : $style.zeroTasks]">
+    <div v-bind:class="[sortTasks.length ? $style.hide : $style.zeroTasks]">
       There are no tasks
     </div>
-    <input
-      ref="input"
-      :class="$style.input"
-      placeholder="Add a new task"
-      v-on:keyup.enter="add"
-      :value="taskText"
-      @input="taskText = $event.target.value"
-    />
+    <form @submit.prevent="add">
+      <input
+        :class="$style.input"
+        placeholder="Add a new task"
+        v-model="taskText"
+      />
+    </form>
   </main>
 </template>
 
 <script>
 import TaskList from "@/components/organisms/TaskList.vue";
-import { v4 as uuidv4 } from "uuid";
 import { mapMutations, mapGetters } from "vuex";
 
 export default {
@@ -30,15 +28,11 @@ export default {
   components: {
     TaskList,
   },
-  computed: mapGetters(["allTasks"]),
+  computed: mapGetters(["sortTasks"]),
   methods: {
     ...mapMutations(["addTask"]),
     add() {
-      this.addTask({
-        title: this.taskText,
-        isChecked: false,
-        id: uuidv4(),
-      });
+      this.addTask(this.taskText);
       this.taskText = "";
     },
   },
