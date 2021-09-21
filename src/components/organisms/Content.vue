@@ -1,7 +1,7 @@
 <template>
   <main :class="$style.main">
     <TaskList />
-    <div v-bind:class="[sortTasks.length ? $style.hide : $style.zeroTasks]">
+    <div :class="[sortTasks.length ? $style.hide : $style.zeroTasks]">
       There are no tasks
     </div>
     <form @submit.prevent="add">
@@ -29,6 +29,7 @@ export default {
     TaskList,
   },
   computed: mapGetters(["sortTasks"]),
+	
   methods: {
     ...mapMutations(["addTask"]),
     add() {

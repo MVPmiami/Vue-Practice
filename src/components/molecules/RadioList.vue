@@ -19,11 +19,6 @@ export default {
   components: {
     Radio,
   },
-  data() {
-    return {
-      radioinfo: "",
-    };
-  },
   computed: mapGetters(["allRadioBtns"]),
 };
 </script>

@@ -1,13 +1,12 @@
 <template>
-  <label :class="$style.radioBtn" v-on:click="changeRadio">
-    <input :id="id" type="radio" name="radio" :checked="isChecked" />
+  <label :class="$style.radioBtn" @click="changeRadio">
+    <input type="radio" name="radio" :checked="isChecked" />
     <span :class="$style.fake">{{ title }}</span>
   </label>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
-
 export default {
   name: "Radio",
   props: {
@@ -42,7 +41,6 @@ export default {
   &:hover {
     cursor: pointer;
   }
-
   input {
     display: none;
     &:checked + .fake {
@@ -57,7 +55,7 @@ export default {
     height: 100%;
     padding: 0.125rem 0.375rem;
     text-align: center;
-		user-select: none;
+    user-select: none;
   }
 }
 </style>

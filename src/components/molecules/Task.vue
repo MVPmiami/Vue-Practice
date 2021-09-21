@@ -7,13 +7,13 @@
         :id="id"
         name="task"
         :checked="isChecked"
-        v-on:click="check"
+        @click="check"
       />
       <label :for="id"
         ><p :class="$style.textTask">{{ title }}</p></label
       >
     </div>
-    <button :class="$style.deleteBtn" v-on:click="removeTask"></button>
+    <button :class="$style.deleteBtn" @click="removeTask"></button>
   </div>
 </template>
 
@@ -38,6 +38,7 @@ export default {
     },
   },
   computed: mapGetters(["leftTasks"]),
+
   methods: {
     ...mapMutations(["deleteTask", "checkTask"]),
     removeTask() {
@@ -45,7 +46,7 @@ export default {
     },
     check() {
       this.checkTask(this.id);
-			this.leftTasks;
+      this.leftTasks;
     },
   },
 };
