@@ -17,23 +17,36 @@ export default {
           return state.tasks;
       }
     },
-		leftTasks: (state, getters) => {
+    leftTasks: (state, getters) => {
       return getters.sortTasks.filter((task) => !task.isChecked).length;
     },
   },
   mutations: {
     addTask(state, textTask) {
-      textTask.length
+      textTask
         ? state.tasks.push({ title: textTask, isChecked: false, id: uuidv4() })
         : null;
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     deleteTask(state, id) {
       state.tasks = state.tasks.filter((task) => task.id !== id);
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     checkTask(state, id) {
       state.tasks = state.tasks.map((task) =>
         task.id === id ? { ...task, isChecked: !task.isChecked } : task
       );
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
+    },
+    renderLocalStorageTasks(state) {
+      localStorage.getItem("tasks")
+        ? (state.tasks = JSON.parse(localStorage.getItem("tasks")))
+        : new Array();
+    },
+  },
+  actions: {
+    renderLocalStorageTasks(context) {
+      context.commit("renderLocalStorageTasks");
     },
   },
 };
