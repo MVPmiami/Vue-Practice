@@ -26,7 +26,6 @@ export default {
       textTask
         ? state.tasks.push({ title: textTask, isChecked: false, id: uuidv4() })
         : null;
-      localStorage.clear();
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     deleteTask(state, id) {
@@ -40,7 +39,9 @@ export default {
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     renderLocalStorageTasks(state) {
-      state.tasks = JSON.parse(localStorage.tasks);
+      localStorage.getItem("tasks")
+        ? (state.tasks = JSON.parse(localStorage.getItem("tasks")))
+        : new Array();
     },
   },
   actions: {

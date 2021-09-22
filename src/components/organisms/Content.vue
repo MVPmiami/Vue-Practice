@@ -39,7 +39,7 @@ export default {
     },
   },
   mounted() {
-    localStorage.tasks ? this.renderLocalStorageTasks() : null;
+    this.renderLocalStorageTasks();
   },
 };
 </script>
