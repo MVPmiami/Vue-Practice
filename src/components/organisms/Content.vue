@@ -16,7 +16,7 @@
 
 <script>
 import TaskList from "@/components/organisms/TaskList.vue";
-import { mapMutations, mapGetters } from "vuex";
+import { mapMutations, mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Content",
@@ -31,17 +31,15 @@ export default {
   computed: mapGetters(["sortTasks"]),
 
   methods: {
-    ...mapMutations(["addTask", "renderLocalStorageTasks"]),
+    ...mapMutations(["addTask"]),
+    ...mapActions(["renderLocalStorageTasks"]),
     add() {
       this.addTask(this.taskText);
       this.taskText = "";
     },
   },
-
   mounted() {
-    if (localStorage.tasks) {
-      this.renderLocalStorageTasks(JSON.parse(localStorage.tasks).tasks);
-    }
+    localStorage.tasks ? this.renderLocalStorageTasks() : null;
   },
 };
 </script>

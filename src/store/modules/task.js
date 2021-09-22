@@ -23,26 +23,29 @@ export default {
   },
   mutations: {
     addTask(state, textTask) {
-      textTask.length
+      textTask
         ? state.tasks.push({ title: textTask, isChecked: false, id: uuidv4() })
         : null;
       localStorage.clear();
-      localStorage.setItem("tasks", JSON.stringify({ tasks: state.tasks }));
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     deleteTask(state, id) {
       state.tasks = state.tasks.filter((task) => task.id !== id);
-      localStorage.clear();
-      localStorage.setItem("tasks", JSON.stringify({ tasks: state.tasks }));
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     checkTask(state, id) {
       state.tasks = state.tasks.map((task) =>
         task.id === id ? { ...task, isChecked: !task.isChecked } : task
       );
-      localStorage.clear();
-      localStorage.setItem("tasks", JSON.stringify({ tasks: state.tasks }));
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
-    renderLocalStorageTasks(state, localStorageTasks) {
-      state.tasks = localStorageTasks;
+    renderLocalStorageTasks(state) {
+      state.tasks = JSON.parse(localStorage.tasks);
+    },
+  },
+  actions: {
+    renderLocalStorageTasks(context) {
+      context.commit("renderLocalStorageTasks");
     },
   },
 };
