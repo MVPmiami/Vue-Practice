@@ -2,7 +2,7 @@
   <footer :class="$style.footer">
     <div :class="[$style.leftSide, $style.side]">
       <div :class="$style.checkedCount">
-        {{ leftTasks }} / {{ sortTasks.length }} left
+        {{ leftTasks }} / {{ countTasks }} left
       </div>
     </div>
     <RadioList />
@@ -18,7 +18,7 @@ export default {
   components: {
     RadioList,
   },
-  computed: mapGetters(["leftTasks", "sortTasks"]),
+  computed: mapGetters(["leftTasks", "countTasks"]),
 };
 </script>
 

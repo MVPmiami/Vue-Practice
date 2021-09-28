@@ -17,6 +17,9 @@ export default {
           return state.tasks;
       }
     },
+    countTasks: (state) => {
+      return state.tasks.length;
+    },
     leftTasks: (state, getters) => {
       return getters.sortTasks.filter((task) => !task.isChecked).length;
     },

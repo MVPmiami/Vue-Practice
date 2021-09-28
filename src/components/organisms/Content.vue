@@ -1,7 +1,7 @@
 <template>
   <main :class="$style.main">
     <TaskList />
-    <div :class="[sortTasks.length ? $style.hide : $style.zeroTasks]">
+    <div :class="[countTasks ? $style.hide : $style.zeroTasks]">
       There are no tasks
     </div>
     <form @submit.prevent="add">
@@ -28,7 +28,7 @@ export default {
   components: {
     TaskList,
   },
-  computed: mapGetters(["sortTasks"]),
+  computed: mapGetters(["countTasks"]),
 
   methods: {
     ...mapMutations(["addTask"]),
@@ -58,7 +58,6 @@ export default {
     @include flexProps(center, row);
     @include fontText($color300);
     background-color: $colorInput;
-    box-sizing: border-box;
     width: 100%;
     padding: 0.625rem 0;
     text-align: center;
