@@ -8,6 +8,7 @@ const store = new Vuex.Store(storeConfig);
 
 describe("store testing", () => {
   it("return count tasks", () => {
+    //console.log(store);
     expect(store.getters.countTasks).toBe(3);
   });
 });
