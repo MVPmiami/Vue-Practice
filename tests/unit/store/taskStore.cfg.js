@@ -1,4 +1,4 @@
-import vuex from "@/store/modules/task";
+import vuex from "@/store/modules/task.js";
 
 export default {
   state: {
@@ -19,8 +19,8 @@ export default {
         id: "3",
       },
     ],
-    actions: vuex.actions,
-    mutations: vuex.mutations,
-    getters: vuex.getters,
   },
+  actions: vuex.actions,
+  mutations: vuex.mutations,
+  getters: vuex.getters,
 };
