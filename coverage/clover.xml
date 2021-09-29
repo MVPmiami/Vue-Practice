@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1632831893262" clover="3.2.0">
-  <project timestamp="1632831893263" name="All files">
-    <metrics statements="34" coveredstatements="18" conditionals="10" coveredconditionals="0" methods="19" coveredmethods="6" elements="63" coveredelements="24" complexity="0" loc="34" ncloc="34" packages="4" files="7" classes="7"/>
+<coverage generated="1632926334623" clover="3.2.0">
+  <project timestamp="1632926334624" name="All files">
+    <metrics statements="34" coveredstatements="18" conditionals="10" coveredconditionals="0" methods="19" coveredmethods="6" elements="63" coveredelements="24" complexity="0" loc="34" ncloc="34" packages="5" files="8" classes="8"/>
     <package name="src.components.atoms">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Radio.vue" path="C:\Users\Алексей\Desktop\vue-practice\src\components\atoms\Radio.vue">
@@ -47,26 +47,32 @@
         <line num="15" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="tests.unit.store">
+    <package name="src.store.modules">
       <metrics statements="16" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="13" coveredmethods="0"/>
-      <file name="store.cfg.js" path="C:\Users\Алексей\Desktop\vue-practice\tests\unit\store\store.cfg.js">
+      <file name="task.js" path="C:\Users\Алексей\Desktop\vue-practice\src\store\modules\task.js">
         <metrics statements="16" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="13" coveredmethods="0"/>
-        <line num="22" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="49" count="0" type="stmt"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="62" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="69" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="tests.unit.store">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="store.cfg.js" path="C:\Users\Алексей\Desktop\vue-practice\tests\unit\store\store.cfg.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
     </package>
   </project>
