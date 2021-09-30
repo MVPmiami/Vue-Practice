@@ -80,8 +80,12 @@ export default {
     display: none;
   }
   @media (max-width: 600px) {
-    .main {
+    & {
       width: 15rem;
+    }
+    & .zeroTasks {
+      text-align: center;
+      line-height: 2rem;
     }
   }
 }

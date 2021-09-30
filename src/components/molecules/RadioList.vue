@@ -28,8 +28,8 @@ export default {
   @include flexProps(space-between, row);
   margin: 0 1.87rem;
   @media (max-width: 600px) {
-    .side {
-      margin: 0 0.5rem;
+    & {
+      margin: 0 0;
       font-size: 1rem;
     }
   }
