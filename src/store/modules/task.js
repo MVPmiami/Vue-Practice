@@ -13,9 +13,10 @@ export default {
           return state.tasks.filter((task) => !task.isChecked);
         case "Completed":
           return state.tasks.filter((task) => task.isChecked);
-        default:
-          return state.tasks;
       }
+    },
+    countTasks: (state) => {
+      return state.tasks.length;
     },
     leftTasks: (state, getters) => {
       return getters.sortTasks.filter((task) => !task.isChecked).length;

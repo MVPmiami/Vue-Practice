@@ -69,7 +69,7 @@ export default {
   }
   .deleteBtn {
     @include imgProps("~@/assets/img/Vector.png");
-    width: 1.5rem;
+    min-width: 1.5rem;
     height: 1.5rem;
     background-color: $color200;
     opacity: 0.5;
@@ -98,7 +98,7 @@ export default {
       margin: 0 1.25rem;
       content: "";
       display: inline-block;
-      width: 1.25rem;
+      min-width: 1.25rem;
       height: 1.25rem;
       border: 0.094rem solid $color400;
       border-radius: 0.313rem;
