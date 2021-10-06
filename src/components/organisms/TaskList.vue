@@ -6,6 +6,8 @@
       :title="task.title"
       :isChecked="task.isChecked"
       :id="task.id"
+      :subTasks="task.subTasks"
+      :isShow="task.isShow"
     />
   </div>
 </template>

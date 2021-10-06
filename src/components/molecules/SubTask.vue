@@ -1,34 +1,27 @@
 <template>
-  <div :class="$style.task">
-    <div :class="$style.mainTask" @click="show">
-      <div :class="$style.leftSide">
-        <input
-          type="checkbox"
-          :class="$style.checkbox"
-          :id="id"
-          name="task"
-          :checked="isChecked"
-          @click="check"
-        />
-        <label :for="id"
-          ><p :class="$style.textTask">{{ title }}</p></label
-        >
-      </div>
-      <button :class="$style.deleteBtn" @click="removeTask"></button>
+  <div :class="$style.subTask">
+    <div :class="$style.leftSide">
+      <input
+        type="checkbox"
+        :class="$style.checkbox"
+        :id="id"
+        name="subTask"
+        :checked="isChecked"
+        @click="check"
+      />
+      <label :for="id"
+        ><p :class="$style.textTask">{{ title }}</p></label
+      >
     </div>
-    <SubTaskList :isShow="isShow" :idTask="id" :subTasks="subTasks" />
+    <button :class="$style.deleteBtn" @click="deleteTask"></button>
   </div>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
-import SubTaskList from "@/components/organisms/SubTaskList.vue";
 
 export default {
-  name: "Task",
-  components: {
-    SubTaskList,
-  },
+  name: "SubTask",
   props: {
     title: {
       type: String,
@@ -38,52 +31,36 @@ export default {
       type: Boolean,
       default: false,
     },
-    isShow: {
-      type: Boolean,
-      default: false,
-    },
     id: {
       type: String,
       default: "",
     },
-    subTasks: {
-      type: Array,
-      default: new Array(),
+    idTask: {
+      type: String,
+      default: "",
     },
   },
-
   methods: {
-    ...mapMutations(["deleteTask", "checkTask", "changeShowStatus"]),
-    removeTask() {
-      this.deleteTask(this.id);
+    ...mapMutations(["deleteSubTask", "checkSubTask"]),
+    deleteTask() {
+      this.deleteSubTask({ id: this.id, mainId: this.idTask });
     },
     check() {
-      this.checkTask(this.id);
-    },
-    show() {
-      this.changeShowStatus(this.id);
+      this.checkSubTask({ id: this.id, mainId: this.idTask });
     },
   },
 };
 </script>
 
 <style lang="scss" module>
-.task {
-  @include flexProps(space-between, column);
+.subTask {
+  @include flexProps(space-between, row);
   @include fontText($color800);
-  margin-bottom: 1.875rem;
-  background-color: $color200;
-  border-radius: 0.625rem;
+  border-top: 0.125rem solid $color200;
+  background-color: $colorInput;
   width: 100%;
+  padding: 0.688rem 0;
   position: relative;
-  box-sizing: border-box;
-  border: 0.125rem solid $color200;
-  .mainTask {
-    @include flexProps(space-between, row);
-    width: 100%;
-    margin-bottom: 0.544rem;
-    padding: 0.688rem 0 0;
-  }
   .textTask {
     max-width: 23rem;
     margin: 0;
@@ -97,12 +74,12 @@ export default {
     min-width: 1.5rem;
     height: 1.5rem;
     background-color: $color200;
-    opacity: 0.5;
+    opacity: 0.3;
     border: none;
     outline: none;
     margin: 0 0.813rem;
     &:hover {
-      opacity: 1;
+      opacity: 0.4;
       cursor: pointer;
     }
   }
@@ -125,15 +102,15 @@ export default {
       display: inline-block;
       min-width: 1.25rem;
       height: 1.25rem;
-      border: 0.094rem solid $color400;
+      border: 0.094rem solid $color300;
       border-radius: 0.313rem;
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 85% 65%;
     }
     &:checked + label::before {
-      border-color: $color400;
-      background-color: $color400;
+      border-color: $color300;
+      background-color: $color300;
       background-image: url("~@/assets/img/check.png");
     }
   }
