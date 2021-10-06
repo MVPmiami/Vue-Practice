@@ -58,9 +58,10 @@ export default {
     @include flexProps(center, row);
     @include fontText($color300);
     background-color: $colorInput;
-    width: 100%;
+    width: 30rem;
     padding: 0.625rem 0;
     text-align: center;
+    box-sizing: border-box;
     border: 0.156rem dashed $color300;
     border-radius: 0.625rem;
     &:focus {
@@ -82,11 +83,14 @@ export default {
   @media (max-width: 600px) {
     & {
       width: 15rem;
-    }
-    & .zeroTasks {
+			.zeroTasks {
       text-align: center;
       line-height: 2rem;
-    }
+    	}
+			.input {
+    	width: 15rem;
+  		}
+  	}
   }
 }
 </style>

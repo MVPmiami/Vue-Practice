@@ -1,28 +1,35 @@
 <template>
-  <div :class="$style.task">
-    <div :class="$style.leftSide">
-      <input
-        type="checkbox"
-        :class="$style.checkbox"
-        :id="id"
-        name="task"
-        :checked="isChecked"
-        @click="check"
-      />
-      <label :for="id"
-        ><p :class="$style.textTask">{{ title }}</p></label
-      >
+  <div :class="$style.task" >
+    <div :class="$style.mainTask" @click="show">
+      <div :class="$style.leftSide" >
+        <input
+          type="checkbox"
+          :class="$style.checkbox"
+          :id="id"
+          name="task"
+          :checked="isChecked"
+          @click="check"
+        />
+        <label :for="id"
+          ><p :class="$style.textTask">{{ title }}</p></label
+        >
+      </div>
+      <button :class="$style.deleteBtn" @click="removeTask"></button>
     </div>
-    <button :class="$style.deleteBtn" @click="removeTask"></button>
+    <SubTaskList :isShow="isShow" :idTask="id" :subTasks="subTasks"/>
   </div>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
 import { mapGetters } from "vuex";
+import SubTaskList from "@/components/organisms/SubTaskList.vue";
 
 export default {
   name: "Task",
+  components: {
+    SubTaskList,
+  },
   props: {
     title: {
       type: String,
@@ -32,15 +39,23 @@ export default {
       type: Boolean,
       default: false,
     },
+		isShow: {
+      type: Boolean,
+      default: false,
+    },
     id: {
       type: String,
       default: "",
+    },
+    subTasks: {
+      type: Array,
+      default: new Array(),
     },
   },
   computed: mapGetters(["leftTasks"]),
 
   methods: {
-    ...mapMutations(["deleteTask", "checkTask"]),
+    ...mapMutations(["deleteTask", "checkTask","changeShowStatus"]),
     removeTask() {
       this.deleteTask(this.id);
     },
@@ -48,24 +63,37 @@ export default {
       this.checkTask(this.id);
       this.leftTasks;
     },
+		show(){
+			this.changeShowStatus(this.id);
+		}
   },
 };
 </script>
 
 <style lang="scss" module>
 .task {
-  @include flexProps(space-between, row);
+  @include flexProps(space-between, column);
   @include fontText($color800);
   margin-bottom: 1.875rem;
   background-color: $color200;
   border-radius: 0.625rem;
   width: 100%;
-  padding: 0.688rem 0;
   position: relative;
+  box-sizing: border-box;
+  border: 2px solid $color200;
+  .mainTask {
+    @include flexProps(space-between, row);
+    width: 100%;
+    margin-bottom: 0.544rem;
+		padding: 0.688rem 0 0;
+  }
   .textTask {
     max-width: 23rem;
     margin: 0;
     word-break: break-all;
+  }
+  .leftSide {
+    display: flex;
   }
   .deleteBtn {
     @include imgProps("~@/assets/img/Vector.png");
