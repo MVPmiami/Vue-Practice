@@ -6,7 +6,7 @@
       :title="subTask.title"
       :isChecked="subTask.isChecked"
       :id="subTask.id"
-			:idTask="idTask"
+      :idTask="idTask"
     />
     <div :class="$style.newSubTaskInput">
       <div :class="$style.addBtn"></div>
@@ -39,7 +39,7 @@ export default {
       type: String,
       default: "",
     },
-		isShow: {
+    isShow: {
       type: Boolean,
       default: false,
     },
@@ -66,49 +66,49 @@ export default {
   position: relative;
   width: 100%;
   z-index: 10;
-	.addBtn {
-  width: 1.525rem;
-  height: 1.525rem;
-  background-image: url("./../../assets/img/addBtn.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin: 0 1.2rem;
-}
-.newSubTaskInput {
-  @include flexProps(space-between, row);
-  background-color: $colorInput;
-  border-radius: 0 0 0.625rem 0.625rem;
-  width: 100%;
-  border-top: 0.125rem solid $color200;
-}
-form {
-  width: 26rem;
-}
-.input {
-  @include flexProps(center, row);
-  @include fontText($color300);
-  background-color: $colorInput;
-  padding: 0.625rem 0;
-  text-align: left;
-  box-sizing: border-box;
-  border-radius: 0 0 0.625rem 0.625rem;
-  border: none;
-  outline: none;
-  width: 100%;
-  &:focus {
-    outline: none;
-    color: $color500;
+  .addBtn {
+    width: 1.525rem;
+    height: 1.525rem;
+    background-image: url("./../../assets/img/addBtn.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 1.2rem;
   }
- }
-@media (max-width: 600px) {
+  .newSubTaskInput {
+    @include flexProps(space-between, row);
+    background-color: $colorInput;
+    border-radius: 0 0 0.625rem 0.625rem;
+    width: 100%;
+    border-top: 0.125rem solid $color200;
+  }
+  form {
+    width: 26rem;
+  }
+  .input {
+    @include flexProps(center, row);
+    @include fontText($color300);
+    background-color: $colorInput;
+    padding: 0.625rem 0;
+    text-align: left;
+    box-sizing: border-box;
+    border-radius: 0 0 0.625rem 0.625rem;
+    border: none;
+    outline: none;
+    width: 100%;
+    &:focus {
+      outline: none;
+      color: $color500;
+    }
+  }
+  @media (max-width: 600px) {
     & {
-			.addBtn{
- 				width: 3.6rem;
- 				height: 1.625rem;
- 				background-size: cover;
- 				margin: 0 0.5rem 0 1.2rem;
-			}
-  	}
+      .addBtn {
+        width: 3.6rem;
+        height: 1.625rem;
+        background-size: cover;
+        margin: 0 0.5rem 0 1.2rem;
+      }
+    }
   }
 }
 </style>

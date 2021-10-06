@@ -83,14 +83,14 @@ export default {
   @media (max-width: 600px) {
     & {
       width: 15rem;
-			.zeroTasks {
-      text-align: center;
-      line-height: 2rem;
-    	}
-			.input {
-    	width: 15rem;
-  		}
-  	}
+      .zeroTasks {
+        text-align: center;
+        line-height: 2rem;
+      }
+      .input {
+        width: 15rem;
+      }
+    }
   }
 }
 </style>

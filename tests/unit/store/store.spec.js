@@ -37,8 +37,8 @@ describe("store testing", () => {
     expect(store.getters.countTasks).toBe(4);
     expect(storeTasks[3].title).toBe(newTask);
     expect(storeTasks[3].isChecked).toBe(false);
-		expect(storeTasks[3].id).toBeTruthy();
-		store.dispatch("renderLocalStorageTasks");
+    expect(storeTasks[3].id).toBeTruthy();
+    store.dispatch("renderLocalStorageTasks");
   });
   it("delete task from taskList", () => {
     const id = storeTasks[3].id;

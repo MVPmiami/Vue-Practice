@@ -7,7 +7,7 @@
         :id="id"
         name="subTask"
         :checked="isChecked"
-				@click="check"
+        @click="check"
       />
       <label :for="id"
         ><p :class="$style.textTask">{{ title }}</p></label
@@ -35,19 +35,19 @@ export default {
       type: String,
       default: "",
     },
-		idTask: {
+    idTask: {
       type: String,
       default: "",
     },
   },
   methods: {
-    ...mapMutations(["deleteSubTask","checkSubTask"]),
+    ...mapMutations(["deleteSubTask", "checkSubTask"]),
     deleteTask() {
-      this.deleteSubTask({id: this.id, mainId: this.idTask});
+      this.deleteSubTask({ id: this.id, mainId: this.idTask });
     },
-		check(){
-			this.checkSubTask({id: this.id, mainId: this.idTask});
-		}
+    check() {
+      this.checkSubTask({ id: this.id, mainId: this.idTask });
+    },
   },
 };
 </script>

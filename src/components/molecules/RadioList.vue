@@ -29,7 +29,7 @@ export default {
   margin: 0 1.87rem;
   @media (max-width: 600px) {
     & {
-      margin: 0 0;
+      margin: 0;
       font-size: 1rem;
     }
   }

@@ -1,7 +1,7 @@
 <template>
-  <div :class="$style.task" >
+  <div :class="$style.task">
     <div :class="$style.mainTask" @click="show">
-      <div :class="$style.leftSide" >
+      <div :class="$style.leftSide">
         <input
           type="checkbox"
           :class="$style.checkbox"
@@ -16,13 +16,12 @@
       </div>
       <button :class="$style.deleteBtn" @click="removeTask"></button>
     </div>
-    <SubTaskList :isShow="isShow" :idTask="id" :subTasks="subTasks"/>
+    <SubTaskList :isShow="isShow" :idTask="id" :subTasks="subTasks" />
   </div>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
-import { mapGetters } from "vuex";
 import SubTaskList from "@/components/organisms/SubTaskList.vue";
 
 export default {
@@ -39,7 +38,7 @@ export default {
       type: Boolean,
       default: false,
     },
-		isShow: {
+    isShow: {
       type: Boolean,
       default: false,
     },
@@ -52,20 +51,18 @@ export default {
       default: new Array(),
     },
   },
-  computed: mapGetters(["leftTasks"]),
 
   methods: {
-    ...mapMutations(["deleteTask", "checkTask","changeShowStatus"]),
+    ...mapMutations(["deleteTask", "checkTask", "changeShowStatus"]),
     removeTask() {
       this.deleteTask(this.id);
     },
     check() {
       this.checkTask(this.id);
-      this.leftTasks;
     },
-		show(){
-			this.changeShowStatus(this.id);
-		}
+    show() {
+      this.changeShowStatus(this.id);
+    },
   },
 };
 </script>
@@ -80,12 +77,12 @@ export default {
   width: 100%;
   position: relative;
   box-sizing: border-box;
-  border: 2px solid $color200;
+  border: 0.125rem solid $color200;
   .mainTask {
     @include flexProps(space-between, row);
     width: 100%;
     margin-bottom: 0.544rem;
-		padding: 0.688rem 0 0;
+    padding: 0.688rem 0 0;
   }
   .textTask {
     max-width: 23rem;

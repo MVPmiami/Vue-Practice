@@ -7,7 +7,7 @@
       :isChecked="task.isChecked"
       :id="task.id"
       :subTasks="task.subTasks"
-			:isShow="task.isShow"
+      :isShow="task.isShow"
     />
   </div>
 </template>

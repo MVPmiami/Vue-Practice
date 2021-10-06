@@ -35,19 +35,19 @@ export default {
         : null;
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
-		changeShowStatus: (state, id) => {
-			  state.tasks = state.tasks.map((task) =>
+    changeShowStatus: (state, id) => {
+      state.tasks = state.tasks.map((task) =>
         task.id === id ? { ...task, isShow: !task.isShow } : task
       );
-			localStorage.setItem("tasks", JSON.stringify(state.tasks));
-		},
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
+    },
     addTask(state, textTask) {
       textTask
         ? state.tasks.push({
             title: textTask,
             isChecked: false,
             id: uuidv4(),
-						isShow: false,
+            isShow: false,
             subTasks: [],
           })
         : null;
@@ -59,20 +59,23 @@ export default {
     },
     deleteSubTask(state, Ids) {
       let nTask = state.tasks.find((task) => task.id === Ids.mainId);
-			nTask.subTasks = nTask.subTasks.filter((subTask) => subTask.id !== Ids.id)
+      nTask.subTasks = nTask.subTasks.filter(
+        (subTask) => subTask.id !== Ids.id
+      );
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
-		checkSubTask(state, Ids) {
-			let nTask = state.tasks.find((task) => task.id === Ids.mainId);
-			nTask.subTasks = nTask.subTasks.map((subTask) => 
-			subTask.id === Ids.id 
-			?{ ...subTask, isChecked: !subTask.isChecked } 
-			: subTask)
+    checkSubTask(state, Ids) {
+      let nTask = state.tasks.find((task) => task.id === Ids.mainId);
+      nTask.subTasks = nTask.subTasks.map((subTask) =>
+        subTask.id === Ids.id
+          ? { ...subTask, isChecked: !subTask.isChecked }
+          : subTask
+      );
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
-		showSubTasks(state) {
-			state.isShow = !state.isShow;
-		},
+    showSubTasks(state) {
+      state.isShow = !state.isShow;
+    },
     checkTask(state, id) {
       state.tasks = state.tasks.map((task) =>
         task.id === id ? { ...task, isChecked: !task.isChecked } : task
