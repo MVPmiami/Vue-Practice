@@ -5,15 +5,17 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-		"test": "jest",
+    "test": "jest",
     "test:unit": "vue-cli-service test:unit --coverage",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-		"cy": "cypress open"
+    "cy": "cypress open"
   },
   "dependencies": {
+    "@vitejs/plugin-vue": "^1.10.2",
     "core-js": "^3.6.5",
     "uuid": "^8.3.2",
+    "vite": "^2.7.1",
     "vue": "^2.6.11",
     "vuex": "^3.6.2"
   },
